@@ -1,0 +1,99 @@
+/* Add custom styles for the dashboard here if needed */ 
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #f4f4f4 60%, #e0e7ff 100%);
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    text-align: center;
+}
+h1 {
+    color: #2d3a4b;
+    margin-bottom: 10px;
+}
+.status {
+    font-size: 1.3em;
+    margin: 24px 0 18px 0;
+    padding: 10px 0;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+}
+.safe {
+    color: #1a7f37;
+    background: #e6f9ed;
+    border: 1px solid #b6e7c9;
+}
+.stopped {
+    color: #b91c1c;
+    background: #ffeaea;
+    border: 1px solid #f5bcbc;
+}
+.video {
+    border: 3px solid #2d3a4b;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+}
+p {
+    color: #888;
+    font-size: 1em;
+}
+.sidebar {
+    min-height: 100vh;
+    border-right: 1px solid #e0e0e0;
+}
+.sidebar-sticky {
+    position: sticky;
+    top: 2rem;
+}
+#video-feed {
+    border: 3px solid #2d3a4b;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+    background: #fff;
+}
+#machine-status.alert-success {
+    background: #e6f9ed;
+    color: #1a7f37;
+    border: 1px solid #b6e7c9;
+}
+#machine-status.alert-danger {
+    background: #ffeaea;
+    color: #b91c1c;
+    border: 1px solid #f5bcbc;
+}
+.status-dot {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px #1a7f37;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+.bg-success {
+    background: #1a7f37 !important;
+    box-shadow: 0 0 12px #1a7f37;
+}
+.bg-danger {
+    background: #b91c1c !important;
+    box-shadow: 0 0 16px #b91c1c;
+    animation: hazard-blink 1s infinite alternate;
+}
+@keyframes hazard-blink {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+#notification-area {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+} 

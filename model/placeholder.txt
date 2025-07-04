@@ -1,0 +1,2 @@
+This directory is for your AI hazard detection model files.
+Replace this placeholder with your trained model (e.g., TensorFlow .h5, PyTorch .pt, etc.). 

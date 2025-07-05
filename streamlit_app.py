@@ -3,5 +3,5 @@
 
 import streamlit as st
 
-# Import and run the simplified application for cloud deployment
-exec(open('app_simple.py').read()) 
+# Import and run the minimal application for cloud deployment
+exec(open('app_minimal.py').read()) 

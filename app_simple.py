@@ -27,6 +27,14 @@ import time
 import warnings
 import os
 
+# Configure Streamlit page FIRST (before any other st commands)
+st.set_page_config(
+    page_title="MMS Safety System - AI-Powered Accident Prevention",
+    page_icon="🏭",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 # Handle OpenCV import with fallback
 try:
     import cv2
@@ -38,14 +46,6 @@ except ImportError:
 # Suppress Streamlit warnings for cleaner operation
 warnings.filterwarnings("ignore", message=".*missing ScriptRunContext.*")
 os.environ['STREAMLIT_SERVER_HEADLESS'] = 'true'
-
-# Configure Streamlit page for professional industrial interface
-st.set_page_config(
-    page_title="MMS Safety System - AI-Powered Accident Prevention",
-    page_icon="🏭",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 
 # --- Sidebar Configuration ---
 st.sidebar.title("🏭 MMS Safety System")

@@ -58,6 +58,113 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Add custom CSS for better styling
+st.markdown("""
+<style>
+    /* Main header styling */
+    .main-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        color: white;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    
+    .main-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    /* Status cards */
+    .status-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        border-left: 5px solid;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .status-safe {
+        border-left-color: #10b981;
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    }
+    
+    .status-hazard {
+        border-left-color: #ef4444;
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3); }
+        50% { box-shadow: 0 4px 30px rgba(239, 68, 68, 0.6); }
+        100% { box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3); }
+    }
+    
+    /* Metric cards */
+    .metric-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .metric-value {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .metric-label {
+        font-size: 0.9rem;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Webcam container */
+    .webcam-container {
+        background: #f8fafc;
+        padding: 2rem;
+        border-radius: 15px;
+        border: 2px dashed #cbd5e1;
+        text-align: center;
+        margin: 1rem 0;
+    }
+    
+    /* Progress bars */
+    .progress-container {
+        background: #e5e7eb;
+        border-radius: 10px;
+        height: 8px;
+        margin: 0.5rem 0;
+        overflow: hidden;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        border-radius: 10px;
+        transition: width 0.3s ease;
+    }
+    
+    .progress-safe {
+        background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+    }
+    
+    .progress-hazard {
+        background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # --- Sidebar Configuration ---
 st.sidebar.title("🏭 MMS Safety System")
 st.sidebar.markdown("**Configuration Panel**")
@@ -126,18 +233,10 @@ if 'consecutive_safe' not in st.session_state:
     st.session_state['consecutive_safe'] = 0
 
 # --- Main Application Header ---
-st.title("🏭 AI-Powered Accident Prevention in MMS")
 st.markdown("""
-**Organisation:** International Automobile Centre of Excellence, Ahmedabad  
-**Category:** Industry Defined Problem - Modular Manufacturing Systems Safety
-""")
-
-# Professional context and system status
-st.markdown("""
-<div style='padding:20px;border-radius:10px;border-left:5px solid #007bff;margin:20px 0;border:1px solid #e9ecef;'>
-    <h3>🔒 Industrial Safety Monitoring System</h3>
-    <p><strong>Mission:</strong> Prevent accidents in Modular Manufacturing Systems through real-time AI vision monitoring.</p>
-    <p><strong>Current Status:</strong> System ready for deployment. Monitor workspace activities and receive instant alerts for potential hazards.</p>
+<div class="main-header">
+    <h1>🏭 MMS Safety System</h1>
+    <p>AI-Powered Accident Prevention in Modular Manufacturing Systems</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -312,46 +411,73 @@ def draw_machine_highlight(frame, hazard):
         return frame
 
 # --- Main Application Interface ---
-# Initialize placeholder elements for dynamic content
-status_circle_placeholder = st.empty()
-status_placeholder = st.empty()
-hazard_count_placeholder = st.empty()
 
 # --- Webcam Monitoring Mode ---
 if input_source == "Webcam":
-    st.subheader("📹 Real-Time Webcam Monitoring")
-    st.markdown("**Monitor your MMS workspace in real-time for potential hazards.**")
+    st.markdown("""
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <h2>📹 Real-Time Webcam Monitoring</h2>
+        <p style="color: #6b7280; font-size: 1.1rem;">Monitor your MMS workspace in real-time for potential hazards</p>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Validate webcam availability
     if not OPENCV_AVAILABLE:
-        st.error("""
-        ⚠️ **OpenCV Not Available**
-        
-        OpenCV is required for webcam functionality but is not available in this environment.
-        This is common in cloud deployments.
-        
-        **Solutions:**
-        1. Use Image Upload mode for static analysis
-        2. For local deployment, install: `pip install opencv-python-headless`
-        3. For Streamlit Cloud, ensure requirements.txt contains: `opencv-python-headless==4.8.1.78`
-        """)
+        st.markdown("""
+        <div class="status-card status-hazard">
+            <h3>⚠️ OpenCV Not Available</h3>
+            <p>OpenCV is required for webcam functionality but is not available in this environment.</p>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Use Image Upload mode for static analysis</li>
+                <li>For local deployment, install: <code>pip install opencv-python-headless</code></li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
         st.stop()
     elif not check_webcam():
-        st.error("""
-        ⚠️ **Webcam Not Available**
-        
-        Please ensure:
-        - Your camera is connected and not used by another application
-        - Camera permissions are granted
-        - Try restarting your computer if issues persist
-        
-        **Alternative:** Use Image Upload mode for static analysis.
-        """)
+        st.markdown("""
+        <div class="status-card status-hazard">
+            <h3>⚠️ Webcam Not Available</h3>
+            <p>Please ensure:</p>
+            <ul>
+                <li>Your camera is connected and not used by another application</li>
+                <li>Camera permissions are granted</li>
+                <li>Try restarting your computer if issues persist</li>
+            </ul>
+            <p><strong>Alternative:</strong> Use Image Upload mode for static analysis.</p>
+        </div>
+        """, unsafe_allow_html=True)
         st.stop()
     
-    # Webcam control interface
-    run = st.checkbox("🚀 Start Real-Time Monitoring", value=False, help="Begin continuous hazard monitoring")
-    FRAME_WINDOW = st.image([])
+    # Webcam controls with better styling
+    col1, col2, col3 = st.columns([1, 2, 1])
+    
+    with col2:
+        run = st.button("🚀 Start Real-Time Monitoring", type="primary", use_container_width=True)
+    
+    # Webcam container
+    st.markdown("""
+    <div class="webcam-container">
+        <h3>📹 Webcam Feed</h3>
+        <p>Click "Start Real-Time Monitoring" to begin</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Placeholder for webcam feed
+    webcam_placeholder = st.empty()
+    
+    # Status indicators
+    status_col1, status_col2, status_col3 = st.columns(3)
+    
+    with status_col1:
+        status_placeholder = st.empty()
+    
+    with status_col2:
+        hazard_count_placeholder = st.empty()
+    
+    with status_col3:
+        progress_placeholder = st.empty()
     
     if run:
         try:
@@ -423,46 +549,63 @@ if input_source == "Webcam":
                 # Highlight machine zone with professional styling
                 frame = draw_machine_highlight(frame, final_hazard)
                 
-                # Update status indicators with professional styling
-                circle_emoji = "🔴" if final_hazard else "🟢"
-                status_circle_placeholder.markdown(f"""
-                    <div style='display:flex;justify-content:center;align-items:center;margin-bottom:10px;'>
-                        <span style='font-size:3.5em;'>{circle_emoji}</span>
-                    </div>
-                """, unsafe_allow_html=True)
-                
                 # Display processed frame
                 if OPENCV_AVAILABLE:
-                    FRAME_WINDOW.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), channels='RGB')
+                    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                    webcam_placeholder.image(frame_rgb, channels='RGB', caption="Live Webcam Feed")
                 else:
                     # Convert numpy array to PIL Image for display
                     frame_rgb = frame[:, :, ::-1]  # BGR to RGB
                     pil_image = Image.fromarray(frame_rgb)
-                    FRAME_WINDOW.image(pil_image, channels='RGB')
+                    webcam_placeholder.image(pil_image, channels='RGB', caption="Live Webcam Feed")
                 
-                # Update status display with professional messaging
+                # Update status displays with new styling
                 if final_hazard:
                     status_placeholder.markdown(f"""
-                        <div style='background:#ffeaea;color:#b91c1c;padding:12px;border-radius:8px;font-size:1.2em;text-align:center;border:2px solid #b91c1c;'>
-                            🚨 <b>EMERGENCY STOP ACTIVATED</b><br>
-                            <small>Hazard detected in machine zone. Machine operation halted for safety.</small>
-                        </div>
+                    <div class="status-card status-hazard">
+                        <h3>🚨 EMERGENCY STOP</h3>
+                        <p>Hazard detected in machine zone</p>
+                    </div>
                     """, unsafe_allow_html=True)
                 else:
                     status_placeholder.markdown(f"""
-                        <div style='background:#e6f9ed;color:#1a7f37;padding:12px;border-radius:8px;font-size:1.2em;text-align:center;border:2px solid #1a7f37;'>
-                            ✅ <b>SYSTEM STATUS: SAFE</b><br>
-                            <small>No hazards detected. Machine operating normally.</small>
-                        </div>
+                    <div class="status-card status-safe">
+                        <h3>✅ SYSTEM SAFE</h3>
+                        <p>No hazards detected</p>
+                    </div>
                     """, unsafe_allow_html=True)
                 
-                # Display hazard event counter
+                # Hazard count with new styling
                 hazard_count_placeholder.markdown(f"""
-                    <div style='text-align:center;margin-top:10px;'>
-                        <span style='background:#b91c1c;color:white;padding:6px 18px;border-radius:20px;font-size:1.1em;font-weight:bold;'>
-                            🚨 Hazard Events: {st.session_state['hazard_count']}
-                        </span>
+                <div class="metric-card">
+                    <div class="metric-value">{st.session_state['hazard_count']}</div>
+                    <div class="metric-label">Hazard Events</div>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                # Progress bars
+                hazard_progress = min(st.session_state['consecutive_hazards'] / 5 * 100, 100)
+                safe_progress = min(st.session_state['consecutive_safe'] / 10 * 100, 100)
+                
+                progress_placeholder.markdown(f"""
+                <div style="margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Hazard Level</span>
+                        <span>{st.session_state['consecutive_hazards']}/5</span>
                     </div>
+                    <div class="progress-container">
+                        <div class="progress-bar progress-hazard" style="width: {hazard_progress}%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Safe Level</span>
+                        <span>{st.session_state['consecutive_safe']}/10</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar progress-safe" style="width: {safe_progress}%"></div>
+                    </div>
+                </div>
                 """, unsafe_allow_html=True)
                 
                 time.sleep(0.03)  # Maintain ~30 FPS for smooth operation
@@ -525,39 +668,30 @@ elif input_source == "Image Upload":
             # Highlight machine zone
             frame = draw_machine_highlight(frame, hazard)
             
-            # Update status indicators
-            circle_emoji = "🔴" if hazard else "🟢"
-            status_circle_placeholder.markdown(f"""
-                <div style='display:flex;justify-content:center;align-items:center;margin-bottom:10px;'>
-                    <span style='font-size:3.5em;'>{circle_emoji}</span>
-                </div>
-            """, unsafe_allow_html=True)
-            
             # Display analyzed image
             st.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), channels='RGB', caption="Hazard Analysis Results")
             
             # Display professional status message
             if hazard:
-                status_placeholder.markdown(f"""
-                    <div style='background:#ffeaea;color:#b91c1c;padding:12px;border-radius:8px;font-size:1.2em;text-align:center;border:2px solid #b91c1c;'>
-                        🚨 <b>HAZARD DETECTED</b><br>
-                        <small>Analysis indicates potential safety risk. Machine should be stopped immediately.</small>
+                st.markdown(f"""
+                    <div class="status-card status-hazard">
+                        <h3>🚨 HAZARD DETECTED</h3>
+                        <p>Analysis indicates potential safety risk. Machine should be stopped immediately.</p>
                     </div>
                 """, unsafe_allow_html=True)
             else:
-                status_placeholder.markdown(f"""
-                    <div style='background:#e6f9ed;color:#1a7f37;padding:12px;border-radius:8px;font-size:1.2em;text-align:center;border:2px solid #1a7f37;'>
-                        ✅ <b>WORKSPACE SAFE</b><br>
-                        <small>No hazards detected in the analyzed image. Workspace appears safe for operation.</small>
+                st.markdown(f"""
+                    <div class="status-card status-safe">
+                        <h3>✅ WORKSPACE SAFE</h3>
+                        <p>No hazards detected in the analyzed image. Workspace appears safe for operation.</p>
                     </div>
                 """, unsafe_allow_html=True)
             
             # Display hazard event counter
-            hazard_count_placeholder.markdown(f"""
-                <div style='text-align:center;margin-top:10px;'>
-                    <span style='background:#b91c1c;color:white;padding:6px 18px;border-radius:20px;font-size:1.1em;font-weight:bold;'>
-                        🚨 Total Hazard Events: {st.session_state['hazard_count']}
-                    </span>
+            st.markdown(f"""
+                <div class="metric-card">
+                    <div class="metric-value">{st.session_state['hazard_count']}</div>
+                    <div class="metric-label">Total Hazard Events</div>
                 </div>
             """, unsafe_allow_html=True)
                     
@@ -722,36 +856,27 @@ elif input_source == "Video Upload":
                 {'...' if len(hazard_timestamps) > 10 else ''}
                 """)
             
-            # Update status indicators with final results
-            circle_emoji = "🔴" if total_hazards > 0 else "🟢"
-            status_circle_placeholder.markdown(f"""
-                <div style='display:flex;justify-content:center;align-items:center;margin-bottom:10px;'>
-                    <span style='font-size:3.5em;'>{circle_emoji}</span>
-                </div>
-            """, unsafe_allow_html=True)
-            
             # Display final status message
             if total_hazards > 0:
-                status_placeholder.markdown(f"""
-                    <div style='background:#ffeaea;color:#b91c1c;padding:12px;border-radius:8px;font-size:1.2em;text-align:center;border:2px solid #b91c1c;'>
-                        🚨 <b>HAZARDS DETECTED IN VIDEO</b><br>
-                        <small>Analysis found {total_hazards} hazard events. Machine should be stopped during these periods.</small>
+                st.markdown(f"""
+                    <div class="status-card status-hazard">
+                        <h3>🚨 HAZARDS DETECTED IN VIDEO</h3>
+                        <p>Analysis found {total_hazards} hazard events. Machine should be stopped during these periods.</p>
                     </div>
                 """, unsafe_allow_html=True)
             else:
-                status_placeholder.markdown(f"""
-                    <div style='background:#e6f9ed;color:#1a7f37;padding:12px;border-radius:8px;font-size:1.2em;text-align:center;border:2px solid #1a7f37;'>
-                        ✅ <b>VIDEO ANALYSIS: SAFE</b><br>
-                        <small>No hazards detected in the analyzed video. Workspace appears safe throughout.</small>
+                st.markdown(f"""
+                    <div class="status-card status-safe">
+                        <h3>✅ VIDEO ANALYSIS: SAFE</h3>
+                        <p>No hazards detected in the analyzed video. Workspace appears safe throughout.</p>
                     </div>
                 """, unsafe_allow_html=True)
             
             # Display hazard event counter
-            hazard_count_placeholder.markdown(f"""
-                <div style='text-align:center;margin-top:10px;'>
-                    <span style='background:#b91c1c;color:white;padding:6px 18px;border-radius:20px;font-size:1.1em;font-weight:bold;'>
-                        🚨 Total Hazards: {total_hazards}
-                    </span>
+            st.markdown(f"""
+                <div class="metric-card">
+                    <div class="metric-value">{total_hazards}</div>
+                    <div class="metric-label">Total Hazards</div>
                 </div>
             """, unsafe_allow_html=True)
             
@@ -768,6 +893,8 @@ elif input_source == "Video Upload":
             - Check available system memory
             """)
 
+
+
 # --- Professional Footer ---
 st.markdown("---")
 st.markdown("""
@@ -775,6 +902,5 @@ st.markdown("""
     <p><strong>🏭 AI-Powered Accident Prevention System</strong></p>
     <p>Industrial-Grade Safety Monitoring for Modular Manufacturing Systems</p>
     <p>Built with Streamlit, OpenCV, and Advanced Computer Vision</p>
-    <p><em>International Automobile Centre of Excellence, Ahmedabad</em></p>
 </div>
 """, unsafe_allow_html=True) 

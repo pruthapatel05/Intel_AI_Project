@@ -1,0 +1,20 @@
+{
+  "datasets": [
+    {
+      "name": "construction-safety",
+      "description": "Construction safety dataset with PPE detection",
+      "url": "https://www.kaggle.com/datasets/construction-safety",
+      "type": "object_detection",
+      "classes": ["helmet", "vest", "gloves", "boots", "person"]
+    },
+    {
+      "name": "ppe-detection",
+      "description": "Personal Protective Equipment detection dataset",
+      "url": "https://www.kaggle.com/datasets/ppe-detection",
+      "type": "object_detection",
+      "classes": ["hardhat", "vest", "gloves", "boots", "goggles"]
+    }
+  ],
+  "last_updated": "2024-01-01",
+  "version": "1.0"
+} 

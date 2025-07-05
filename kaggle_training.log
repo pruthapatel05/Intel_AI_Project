@@ -1,0 +1,144 @@
+2025-07-05 12:04:20,848 - INFO - ============================================================
+2025-07-05 12:04:20,858 - INFO -    Name: gti-upm/ppe-detection-dataset
+2025-07-05 12:04:20,858 - INFO -    Description: Comprehensive PPE detection dataset with helmet, vest, gloves, and boots annotations
+2025-07-05 12:04:20,859 - INFO -    Type: object_detection
+2025-07-05 12:04:20,859 - INFO -    Format: yolo
+2025-07-05 12:04:20,859 - INFO -    Classes: helmet, vest, gloves, boots
+2025-07-05 12:04:20,861 - INFO -    Images: 5,000
+2025-07-05 12:04:20,861 - INFO -    Tags: ppe, safety, industrial, detection
+2025-07-05 12:04:20,861 - INFO - ----------------------------------------
+2025-07-05 12:04:20,864 - INFO -    Name: andrewmvd/safety-equipment-detection
+2025-07-05 12:04:20,864 - INFO -    Description: Safety equipment detection dataset for industrial environments
+2025-07-05 12:04:20,864 - INFO -    Type: object_detection
+2025-07-05 12:04:20,864 - INFO -    Format: yolo
+2025-07-05 12:04:20,864 - INFO -    Classes: hard_hat, safety_vest, safety_glasses, ear_protection
+2025-07-05 12:04:20,864 - INFO -    Images: 3,000
+2025-07-05 12:04:20,865 - INFO -    Tags: safety, equipment, industrial, detection
+2025-07-05 12:04:20,865 - INFO - ----------------------------------------
+2025-07-05 12:04:20,870 - INFO -    Name: mohamedhanytawfeek/industrial-hazards-dataset
+2025-07-05 12:04:20,871 - INFO -    Description: Industrial hazard classification dataset for safety monitoring
+2025-07-05 12:04:20,877 - INFO -    Type: classification
+2025-07-05 12:04:20,879 - INFO -    Format: tensorflow
+2025-07-05 12:04:20,879 - INFO -    Classes: safe, hazard, warning, emergency
+2025-07-05 12:04:20,879 - INFO -    Images: 2,000
+2025-07-05 12:04:20,882 - INFO -    Tags: hazard, industrial, safety, classification
+2025-07-05 12:04:20,884 - INFO - ----------------------------------------
+2025-07-05 12:04:20,893 - INFO -    Name: crowdai/crowdai-human-detection-challenge
+2025-07-05 12:04:20,893 - INFO -    Description: Person detection dataset for safety monitoring and zone intrusion
+2025-07-05 12:04:20,893 - INFO -    Type: object_detection
+2025-07-05 12:04:20,893 - INFO -    Format: yolo
+2025-07-05 12:04:20,895 - INFO -    Classes: person
+2025-07-05 12:04:20,895 - INFO -    Images: 8,000
+2025-07-05 12:04:20,895 - INFO -    Tags: person, detection, safety, monitoring
+2025-07-05 12:04:20,896 - INFO - ----------------------------------------
+2025-07-05 12:04:20,896 - INFO -    Name: andrewmvd/construction-site-safety
+2025-07-05 12:04:20,900 - INFO -    Description: Construction site safety monitoring dataset
+2025-07-05 12:04:20,900 - INFO -    Type: object_detection
+2025-07-05 12:04:20,900 - INFO -    Format: yolo
+2025-07-05 12:04:20,900 - INFO -    Classes: worker, helmet, vest, machinery, danger_zone
+2025-07-05 12:04:20,900 - INFO -    Images: 4,000
+2025-07-05 12:04:20,900 - INFO -    Tags: construction, safety, industrial, detection
+2025-07-05 12:04:20,900 - INFO - ----------------------------------------
+2025-07-05 12:04:20,905 - INFO -    Name: industrial-safety/manufacturing-safety-dataset
+2025-07-05 12:04:20,906 - INFO -    Description: Manufacturing environment safety monitoring dataset
+2025-07-05 12:04:20,906 - INFO -    Type: object_detection
+2025-07-05 12:04:20,906 - INFO -    Format: yolo
+2025-07-05 12:04:20,906 - INFO -    Classes: worker, machine, hazard, safe_zone
+2025-07-05 12:04:20,906 - INFO -    Images: 3,500
+2025-07-05 12:04:20,906 - INFO -    Tags: manufacturing, safety, industrial, detection
+2025-07-05 12:04:20,906 - INFO - ----------------------------------------
+2025-07-05 12:04:20,910 - INFO -    Name: safety-ai/ppe-violation-detection
+2025-07-05 12:04:20,910 - INFO -    Description: PPE violation detection dataset for safety compliance
+2025-07-05 12:04:20,911 - INFO -    Type: classification
+2025-07-05 12:04:20,911 - INFO -    Format: tensorflow
+2025-07-05 12:04:20,911 - INFO -    Classes: compliant, non_compliant, partial_compliance
+2025-07-05 12:04:20,911 - INFO -    Images: 2,500
+2025-07-05 12:04:20,911 - INFO -    Tags: ppe, violation, compliance, safety
+2025-07-05 12:04:20,911 - INFO - ----------------------------------------
+2025-07-05 12:04:20,911 - INFO -    Name: safety-monitoring/zone-intrusion-detection
+2025-07-05 12:04:20,911 - INFO -    Description: Zone intrusion detection dataset for restricted areas
+2025-07-05 12:04:20,911 - INFO -    Type: object_detection
+2025-07-05 12:04:20,911 - INFO -    Format: yolo
+2025-07-05 12:04:20,911 - INFO -    Classes: person, restricted_zone, safe_zone, warning_zone
+2025-07-05 12:04:20,911 - INFO -    Images: 3,000
+2025-07-05 12:04:20,911 - INFO -    Tags: zone, intrusion, safety, monitoring
+2025-07-05 12:04:20,917 - INFO - ----------------------------------------
+2025-07-05 12:04:21,114 - INFO - ==================================================
+2025-07-05 12:04:21,170 - ERROR - Install with: pip install kaggle
+2025-07-05 12:04:21,370 - ERROR - Install with: pip install kaggle
+2025-07-05 12:04:21,627 - ERROR - Install with: pip install kaggle
+2025-07-05 12:19:38,217 - INFO - ============================================================
+2025-07-05 12:19:38,217 - INFO -    Name: gti-upm/ppe-detection-dataset
+2025-07-05 12:19:38,217 - INFO -    Description: Comprehensive PPE detection dataset with helmet, vest, gloves, and boots annotations
+2025-07-05 12:19:38,217 - INFO -    Type: object_detection
+2025-07-05 12:19:38,217 - INFO -    Format: yolo
+2025-07-05 12:19:38,217 - INFO -    Classes: helmet, vest, gloves, boots
+2025-07-05 12:19:38,217 - INFO -    Images: 5,000
+2025-07-05 12:19:38,217 - INFO -    Tags: ppe, safety, industrial, detection
+2025-07-05 12:19:38,224 - INFO - ----------------------------------------
+2025-07-05 12:19:38,224 - INFO -    Name: andrewmvd/safety-equipment-detection
+2025-07-05 12:19:38,226 - INFO -    Description: Safety equipment detection dataset for industrial environments
+2025-07-05 12:19:38,226 - INFO -    Type: object_detection
+2025-07-05 12:19:38,226 - INFO -    Format: yolo
+2025-07-05 12:19:38,226 - INFO -    Classes: hard_hat, safety_vest, safety_glasses, ear_protection
+2025-07-05 12:19:38,226 - INFO -    Images: 3,000
+2025-07-05 12:19:38,226 - INFO -    Tags: safety, equipment, industrial, detection
+2025-07-05 12:19:38,226 - INFO - ----------------------------------------
+2025-07-05 12:19:38,229 - INFO -    Name: mohamedhanytawfeek/industrial-hazards-dataset
+2025-07-05 12:19:38,229 - INFO -    Description: Industrial hazard classification dataset for safety monitoring
+2025-07-05 12:19:38,229 - INFO -    Type: classification
+2025-07-05 12:19:38,229 - INFO -    Format: tensorflow
+2025-07-05 12:19:38,229 - INFO -    Classes: safe, hazard, warning, emergency
+2025-07-05 12:19:38,229 - INFO -    Images: 2,000
+2025-07-05 12:19:38,229 - INFO -    Tags: hazard, industrial, safety, classification
+2025-07-05 12:19:38,229 - INFO - ----------------------------------------
+2025-07-05 12:19:38,229 - INFO -    Name: crowdai/crowdai-human-detection-challenge
+2025-07-05 12:19:38,229 - INFO -    Description: Person detection dataset for safety monitoring and zone intrusion
+2025-07-05 12:19:38,229 - INFO -    Type: object_detection
+2025-07-05 12:19:38,229 - INFO -    Format: yolo
+2025-07-05 12:19:38,229 - INFO -    Classes: person
+2025-07-05 12:19:38,229 - INFO -    Images: 8,000
+2025-07-05 12:19:38,229 - INFO -    Tags: person, detection, safety, monitoring
+2025-07-05 12:19:38,234 - INFO - ----------------------------------------
+2025-07-05 12:19:38,234 - INFO -    Name: andrewmvd/construction-site-safety
+2025-07-05 12:19:38,234 - INFO -    Description: Construction site safety monitoring dataset
+2025-07-05 12:19:38,234 - INFO -    Type: object_detection
+2025-07-05 12:19:38,237 - INFO -    Format: yolo
+2025-07-05 12:19:38,237 - INFO -    Classes: worker, helmet, vest, machinery, danger_zone
+2025-07-05 12:19:38,237 - INFO -    Images: 4,000
+2025-07-05 12:19:38,237 - INFO -    Tags: construction, safety, industrial, detection
+2025-07-05 12:19:38,237 - INFO - ----------------------------------------
+2025-07-05 12:19:38,240 - INFO -    Name: industrial-safety/manufacturing-safety-dataset
+2025-07-05 12:19:38,240 - INFO -    Description: Manufacturing environment safety monitoring dataset
+2025-07-05 12:19:38,244 - INFO -    Type: object_detection
+2025-07-05 12:19:38,245 - INFO -    Format: yolo
+2025-07-05 12:19:38,247 - INFO -    Classes: worker, machine, hazard, safe_zone
+2025-07-05 12:19:38,247 - INFO -    Images: 3,500
+2025-07-05 12:19:38,247 - INFO -    Tags: manufacturing, safety, industrial, detection
+2025-07-05 12:19:38,247 - INFO - ----------------------------------------
+2025-07-05 12:19:38,251 - INFO -    Name: safety-ai/ppe-violation-detection
+2025-07-05 12:19:38,251 - INFO -    Description: PPE violation detection dataset for safety compliance
+2025-07-05 12:19:38,251 - INFO -    Type: classification
+2025-07-05 12:19:38,251 - INFO -    Format: tensorflow
+2025-07-05 12:19:38,251 - INFO -    Classes: compliant, non_compliant, partial_compliance
+2025-07-05 12:19:38,251 - INFO -    Images: 2,500
+2025-07-05 12:19:38,251 - INFO -    Tags: ppe, violation, compliance, safety
+2025-07-05 12:19:38,251 - INFO - ----------------------------------------
+2025-07-05 12:19:38,254 - INFO -    Name: safety-monitoring/zone-intrusion-detection
+2025-07-05 12:19:38,254 - INFO -    Description: Zone intrusion detection dataset for restricted areas
+2025-07-05 12:19:38,254 - INFO -    Type: object_detection
+2025-07-05 12:19:38,254 - INFO -    Format: yolo
+2025-07-05 12:19:38,254 - INFO -    Classes: person, restricted_zone, safe_zone, warning_zone
+2025-07-05 12:19:38,257 - INFO -    Images: 3,000
+2025-07-05 12:19:38,257 - INFO -    Tags: zone, intrusion, safety, monitoring
+2025-07-05 12:19:38,257 - INFO - ----------------------------------------
+2025-07-05 12:19:50,933 - INFO - 🚀 Quick Start: Training PPE Detection Model
+2025-07-05 12:19:50,934 - INFO - ==================================================
+2025-07-05 12:19:50,935 - INFO - 📥 Downloading dataset first...
+2025-07-05 12:19:52,662 - INFO - ✅ Kaggle credentials are properly configured!
+2025-07-05 12:19:52,662 - INFO - 📥 Downloading dataset: gti-upm/ppe-detection-dataset
+2025-07-05 12:19:52,662 - INFO - 📋 Description: Comprehensive PPE detection dataset with helmet, vest, gloves, and boots annotations
+2025-07-05 12:19:52,662 - INFO - 🏷️  Type: object_detection
+2025-07-05 12:19:52,662 - INFO - 📁 Format: yolo
+2025-07-05 12:19:52,662 - INFO - 🔄 Running command: kaggle datasets download -d gti-upm/ppe-detection-dataset -p kaggle_models\ppe-detection --unzip
+2025-07-05 12:19:53,834 - ERROR - ❌ Error downloading dataset: 

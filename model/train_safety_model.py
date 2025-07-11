@@ -64,7 +64,8 @@ def train_hazard_classification_model(dataset_path: str, output_path: str = "mod
         import torch
         import torchvision
         from torchvision import transforms
-        from torch.utils.data import DataLoader, ImageFolder
+        from torch.utils.data import DataLoader
+        from torchvision.datasets import ImageFolder
         
         # Create output directory
         os.makedirs(output_path, exist_ok=True)

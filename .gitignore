@@ -1,0 +1,41 @@
+# Large model files
+*.pt
+*.pth
+*.onnx
+*.weights
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Jupyter notebooks
+*.ipynb
+
+# TensorBoard logs
+events.out.tfevents*
+
+# Cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+temp_*
+*.tmp 

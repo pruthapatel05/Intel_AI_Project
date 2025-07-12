@@ -44,7 +44,15 @@ st.markdown("""
 
 # --- Load Model ---
 MODEL_PATH = 'kaggle_models/construction-safety/results_yolov8n_100e/kaggle/working/runs/detect/train/weights/best.pt'
-model = YOLO(MODEL_PATH)
+
+# Check if model file exists, otherwise use a default model
+import os
+if os.path.exists(MODEL_PATH):
+    model = YOLO(MODEL_PATH)
+else:
+    # Use a smaller default model for deployment
+    st.warning("⚠️ Custom model not found. Using default YOLOv8n model.")
+    model = YOLO('yolov8n.pt')  # This will download automatically
 
 # --- Main UI Logic ---
 if input_source == "Webcam":

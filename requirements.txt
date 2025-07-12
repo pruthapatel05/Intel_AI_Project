@@ -13,5 +13,5 @@ seaborn==0.12.2
 pandas==2.0.3
 requests==2.31.0
 kaggle==1.5.16
-setuptools>=65.0.0
-wheel>=0.38.0 
+setuptools>=68.0.0
+wheel>=0.41.0 

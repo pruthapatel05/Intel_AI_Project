@@ -129,7 +129,7 @@ elif input_source == "Image Upload":
         if first_result is not None:
             for box in first_result.boxes:
                 class_id = int(box.cls[0])
-                label = model.names[class_id]
+                label = model.names[class_id] if model.names and class_id in model.names else str(class_id)
                 if label == "person" and box.conf[0] > confidence_threshold:
                     hazard_detected = True
         if hazard_detected:
@@ -180,7 +180,7 @@ elif input_source == "Video Upload":
             if first_result is not None:
                 for box in first_result.boxes:
                     class_id = int(box.cls[0])
-                    label = model.names[class_id]
+                    label = model.names[class_id] if model.names and class_id in model.names else str(class_id)
                     if label == "person" and box.conf[0] > confidence_threshold:
                         hazard_detected = True
             if hazard_detected:
